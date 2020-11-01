@@ -1,3 +1,4 @@
+import { DEVICE_FEATURE_TYPES } from '../../../../../server/utils/constants';
 import BinaryDeviceFeature from './device-features/BinaryDeviceFeature';
 import ColorDeviceFeature from './device-features/ColorDeviceFeature';
 import SensorDeviceFeature from './device-features/SensorDeviceFeature';
@@ -11,7 +12,7 @@ const DeviceRow = ({ children, ...props }) => {
 
   // else, it's not a sensor
   // if it's a binary
-  if (props.deviceFeature.type === 'binary') {
+  if (props.deviceFeature.type === DEVICE_FEATURE_TYPES.LIGHT.BINARY) {
     return (
       <BinaryDeviceFeature
         x={props.x}
@@ -25,7 +26,7 @@ const DeviceRow = ({ children, ...props }) => {
       />
     );
   }
-  if (props.deviceFeature.type === 'color') {
+  if (props.deviceFeature.type === DEVICE_FEATURE_TYPES.LIGHT.COLOR) {
     return (
       <ColorDeviceFeature
         x={props.x}
@@ -39,7 +40,7 @@ const DeviceRow = ({ children, ...props }) => {
       />
     );
   }
-  if (props.deviceFeature.type === 'dimmer') {
+  if ([DEVICE_FEATURE_TYPES.SWITCH.DIMMER, DEVICE_FEATURE_TYPES.LIGHT.BRIGHTNESS].includes(props.deviceFeature.type)) {
     return (
       <MultilevelDeviceFeature
         x={props.x}

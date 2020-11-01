@@ -10,7 +10,7 @@ import { DEVICE_FEATURE_TYPES } from '../../../../../server/utils/constants';
 
 import actions from '../../../actions/dashboard/edit-boxes/editDevicesInRoom';
 
-const SUPPORTED_FEATURE_TYPES = [DEVICE_FEATURE_TYPES.LIGHT.BINARY, DEVICE_FEATURE_TYPES.LIGHT.COLOR];
+const SUPPORTED_FEATURE_TYPES = [DEVICE_FEATURE_TYPES.LIGHT.BINARY, DEVICE_FEATURE_TYPES.LIGHT.COLOR, DEVICE_FEATURE_TYPES.LIGHT.BRIGHTNESS];
 
 @connect('httpClient', actions)
 class EditDeviceInRoom extends Component {
@@ -41,7 +41,7 @@ class EditDeviceInRoom extends Component {
             value: feature.selector,
             label: getDeviceFeatureName(this.context.intl.dictionary, device, feature)
           };
-          // for now, we only supports binary on/off and sensors
+          // for now, we only supports binary on/off, brightness, colors and sensors
           if (feature.read_only || SUPPORTED_FEATURE_TYPES.includes(feature.type)) {
             roomDeviceFeatures.push(featureOption);
           }
