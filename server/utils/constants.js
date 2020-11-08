@@ -274,6 +274,7 @@ const DEVICE_FEATURE_TYPES = {
   LIGHT: {
     BINARY: 'binary',
     BRIGHTNESS: 'brightness',
+    FADE_IN: 'fade-in',
     HUE: 'hue',
     SATURATION: 'saturation',
     COLOR: 'color',
